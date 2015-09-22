@@ -4,7 +4,8 @@
  */
 package kata;
 
-import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -20,10 +21,13 @@ public class Kata {
 
         
         Person p1;
-        Date bday = new Date(95, 1, 1);
-        p1 = new Person("GÜISANTE", "Lorenzo", bday);
-        System.out.println(p1.getFullName());
-        System.out.println(p1.getAge());
+        
+        Calendar f = GregorianCalendar.getInstance();
+        f.set(1990,7,12);
+        p1 = new Person("GÜISANTE", "Lore", f);
+        System.out.println("Full name: "+p1.getFullName());
+        System.out.println("Birthday: "+p1.getBday().getTime());
+        System.out.println("Age: "+p1.getAge());
         
     }
 }
