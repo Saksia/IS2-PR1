@@ -14,6 +14,7 @@ public class Person {
     private final String name;
     private final String surname;
     private final Date birthday;
+    private static final long MILLS_NUM = (long) (60*60*1000*24*365.25);
 
     public Person(String name, String surname, Date bday) {
         this.name = name;
@@ -38,7 +39,12 @@ public class Person {
     }
     
     public int getAge(){
-        return (int) ((new Date().getTime()-birthday.getTime())/(60*60*1000*24*365.25));
+        return (int) formula(new Date().getTime()-birthday.getTime());
     }
     
-}
+    private long formula (long mills){
+        
+        return mills/MILLS_NUM;
+    }
+ }
+    
